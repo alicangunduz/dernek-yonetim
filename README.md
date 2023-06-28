@@ -2,7 +2,7 @@
 Bu proje, bir derneğin üye yönetimini ve aidat takibini kolaylaştırmak amacıyla geliştirilen bir yazılımdır. Aşağıda yazılımın özellikleri, kurulumu, kullanılan teknolojiler ve lisans türü hakkında detaylı bilgiler yer almaktadır.
 
 ## Yazılım Tanıtım Videosu
-[![Yazılım tanıtım videosu](https://img.youtube.com/vi/4Jb1MC_O2uo/0.jpg)](https://www.youtube.com/watch?v=4Jb1MC_O2uo)
+[![Yazılım tanıtım videosu](https://www.youtube.com/watch?v=4Jb1MC_O2uo)](https://www.youtube.com/watch?v=4Jb1MC_O2uo)
 
 
 ## Özellikler
