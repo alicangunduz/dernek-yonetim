@@ -3,6 +3,7 @@ Bu proje, bir derneğin üye yönetimini ve aidat takibini kolaylaştırmak amac
 
 ## Yazılım Tanıtım Videosu
 https://www.youtube.com/watch?v=4Jb1MC_O2uo
+**Güncel Yazılım versiyonu :** v1.0.0
 
 ## Özellikler
 - Toplam üye görüntüleme: Derneğe kayıtlı toplam üye sayısını görüntüleyebilirsiniz.
