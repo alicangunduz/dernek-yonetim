@@ -7,6 +7,7 @@ $dekontNo = $_POST['Dekont_No'];
 $miktar = $_POST['Miktar'];
 $gelir_turu = $_POST['Gelir_Turu'];
 $aciklama = $_POST['Aciklama'];
+$tarih = date('Y-m-d', strtotime(str_replace('-', '/', $tarih)));
 
 
 // Veritabanına veri ekleme

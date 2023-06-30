@@ -23,11 +23,16 @@ $uyeAyrilisKararTarihi = $_POST['Uyelik_Ayrilis_Karar_Tarihi'];
 $ayrilisKararNo = $_POST['Ayrilis_Karar_No'];
 
 
+$dogumTarihi = date('Y-m-d', strtotime(str_replace('-', '/', $dogumTarihi)));
+$ilkUyelikKararTarihi = date('Y-m-d', strtotime(str_replace('-', '/', $ilkUyelikKararTarihi)));
+$uyeAyrilisTarihi = date('Y-m-d', strtotime(str_replace('-', '/', $uyeAyrilisTarihi)));
+$uyeAyrilisKararTarihi = date('Y-m-d', strtotime(str_replace('-', '/', $uyeAyrilisKararTarihi)));
+
 // Veritabanına veri ekleme
 $sql = "INSERT INTO `uye_bilgi`(`ad`, `soyad`, `tckn`, `tel`, `uyelik_no`, `baba_adi`, `ana_adi`, `uyruk`, `dogum_yeri`, `dogum_tarihi`, `tc_seri_no`, `ikametgah_adresi`, `meslek`, `is_adresi`, `ilk_uyelik_karar_no`, `ilk_uyelik_karar_tarihi`, `defter_kayit_sayfa_no`, `uyelik_durumu`, `uyelik_ayrilis_tarihi`, `uyelik_ayrilis_karar_tarihi`, `ayrilis_karar_no`) 
 VALUES ('$ad', '$soyad', '$tckn', '$telefon', '$uyelikNo', '$babaAdi', '$anaAdi', '$uyruk', '$dogumYeri', '$dogumTarihi', '$tcSeriNo', '$ikametgahAdresi', '$meslek', '$isAdresi', '$ilkUyelikKararNo', '$ilkUyelikKararTarihi', '$defterKayitSayfaNo', '$uyeDurumu', '$uyeAyrilisTarihi', '$uyeAyrilisKararTarihi', '$ayrilisKararNo')";
 
-if ($conn->query($sql) === TRUE) {
+if ($conn->query($sql) === true) {
     echo "Veri başarıyla eklendi.";
 } else {
     echo "Veri eklenirken hata oluştu: " . $conn->error;

@@ -25,6 +25,11 @@ $uyelikAyrilisTarihi = $_POST['Uyelik_Ayrilis_Tarihi'];
 $uyelikAyrilisKararTarihi = $_POST['Uyelik_Ayrilis_Karar_Tarihi'];
 $ayrilisKararNo = $_POST['Ayrilis_Karar_No'];
 
+$dogumTarihi = date('Y-m-d', strtotime(str_replace('-', '/', $dogumTarihi)));
+$ilkUyelikKararTarihi = date('Y-m-d', strtotime(str_replace('-', '/', $ilkUyelikKararTarihi)));
+$uyeAyrilisTarihi = date('Y-m-d', strtotime(str_replace('-', '/', $uyeAyrilisTarihi)));
+$uyeAyrilisKararTarihi = date('Y-m-d', strtotime(str_replace('-', '/', $uyeAyrilisKararTarihi)));
+
 if ($uyelikAyrilisKararTarihi == '') {
     $uyelikAyrilisKararTarihi = '0000-00-00';
 }
