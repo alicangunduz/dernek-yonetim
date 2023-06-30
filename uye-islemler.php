@@ -340,7 +340,7 @@ $conn->close();
 
                 </div>
                 <br><br>
-                <div class="card">
+                <div class="card" id="odeme-alani">
                     <div class="card-header">
                         <h4 class="card-title">Ödeme Ekle
                         </h4>
@@ -503,6 +503,16 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("success-button").click();
     }
 });
+
+// Document readystate dinle complete olunca calistir
+document.onreadystatechange = function() {
+    if (document.readyState === 'complete') {
+        // Url #odeme-alani durumu temizle
+        if (url.includes("#odeme-alani")) {
+            window.history.replaceState({}, document.title, "/uye-islemler.php?id=" + "<?php echo $id; ?>");
+        }
+    }
+}
 // Url id=1&durum=ok  durumu temizle
 if (url.includes("durum=ok")) {
     window.history.replaceState({}, document.title, "/uye-islemler.php?id=" + "<?php echo $id; ?>");

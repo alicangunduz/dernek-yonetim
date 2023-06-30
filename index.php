@@ -162,8 +162,8 @@
                 <td class="px-6 py-4">' . $row["uyelik_no"] . '</td>
                 <td class="px-6 py-4">' . $row["tckn"] . '</td>
                 <td class="px-6 py-4">' . $row["tel"] . '</td>
-                <td class="px-6 py-4 text-right">
-                    <a href="uye-islemler.php?id=' . $row["id"] . '" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">İşlemler</a>
+                <td class="px-6 py-4">
+                    <a href="uye-islemler.php?id=' . $row["id"] . '#odeme-alani" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">İşlemler</a>
                 </td>
             </tr>';
         }                                        

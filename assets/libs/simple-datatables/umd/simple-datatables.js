@@ -1318,7 +1318,7 @@
               footer: !1,
               labels: {
                 placeholder: "Ara...",
-                perPage: "{select} göster",
+                perPage: "{select} tane göster",
                 noRows: "Gösterilecek üye yok",
                 noResults: "Arama sorgunuzla eşleşen sonuç yok",
                 info: "{start} - {end} arasını görüyorsunuz / {rows} toplam üye",

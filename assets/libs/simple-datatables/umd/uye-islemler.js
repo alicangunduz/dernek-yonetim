@@ -1297,7 +1297,7 @@
               sortable: !0,
               searchable: !0,
               paging: !0,
-              perPage: 10,
+              perPage: 5,
               perPageSelect: [5, 10, 15, 20, 25, 50, 100],
               nextPrev: !0,
               firstLast: !1,
@@ -1318,7 +1318,7 @@
               footer: !1,
               labels: {
                 placeholder: "Ara...",
-                perPage: "{select} göster",
+                perPage: "{select} tane göster",
                 noRows: "Gösterilecek ödeme yok",
                 noResults: "Arama sorgunuzla eşleşen sonuç yok",
                 info: "",
