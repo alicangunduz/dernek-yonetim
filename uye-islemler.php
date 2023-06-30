@@ -417,71 +417,60 @@ $conn->close();
                     </div>
 
                     <div class="card-body">
+
                         <div class="relative overflow-x-auto  sm:rounded">
-                            <table class="table-auto w-full">
-                                <thead>
-                                    <tr class="bg-primary-500 text-center">
-                                        <th
-                                            class="text-sm font-medium text-white px-3 py-3 border-l border-transparent">
+
+                            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400" id="datatable_1">
+                                <thead
+                                    class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-slate-700 dark:text-gray-400">
+                                    <tr>
+                                        <th scope="col" class="px-6 py-3">
                                             Tarih
                                         </th>
-                                        <th class="text-sm font-medium text-white px-3 py-3">
+                                        <th scope="col" class="px-6 py-3">
                                             Dekont/Banka No
                                         </th>
-                                        <th class="text-sm font-medium text-white px-3 py-3">
+                                        <th scope="col" class="px-6 py-3">
                                             Miktar
                                         </th>
-                                        <th class="text-sm font-medium text-white px-3 py-3">
+                                        <th scope="col" class="px-6 py-3">
                                             Gelir Türü
                                         </th>
-                                        <th class="text-sm font-medium text-white px-3 py-3">
+                                        <th scope="col" class="px-6 py-3">
                                             Açıklama
                                         </th>
-                                        <th class="text-sm font-medium text-white px-3 py-3">
+                                        <th scope="col" class="px-6 py-3">
                                             Sil
                                         </th>
-
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php
+                                    <?php 
     include('includes/db.php');
-
-    // Üyeleri sorgula ve sonuçları al
     $sql = "SELECT gelir_id, tarih, dekont_no, miktar, gelir_turu, aciklama FROM gelir WHERE id = $id ORDER BY tarih DESC";
     $result = $conn->query($sql);
 
-    // Sonuçları tabloya ekle
     if ($result->num_rows > 0) {
-        $rows = array();
+        // output data of each row
         while ($row = $result->fetch_assoc()) {
-            $rows[] = $row;
-        }
-
-        // Verileri tarihe göre sırala (en son eklenenden başlayarak)
-        usort($rows, function ($a, $b) {
-            return strtotime($b['tarih']) - strtotime($a['tarih']);
-        });
-
-        foreach ($rows as $row) {
-            // row tarihi yil-ay-gun`den gun-ay-yil`e çevir
-            $row["tarih"] = date("d-m-Y", strtotime($row["tarih"]));
-            echo "<tr>";
-            echo "<td class='text-center text-dark py-2 px-3 bg-slate-100 dark:bg-slate-900/20 dark:text-slate-300 border-b border-l border-[#E8E8E8] dark:border-slate-900'>" . $row["tarih"] . "</td>";
-            echo "<td class='text-center text-dark py-2 px-3 bg-white dark:bg-slate-700 dark:text-slate-300 border-b border-[#E8E8E8] dark:border-slate-900'>" . $row["dekont_no"] . "</td>";
-            echo "<td class='text-center text-dark py-2 px-3 bg-slate-100 dark:bg-slate-900/20 dark:text-slate-300 border-b border-[#E8E8E8] dark:border-slate-900'>" . $row["miktar"] . "₺</td>";
-            echo "<td class='text-center text-dark py-2 px-3 bg-white dark:bg-slate-900/20 dark:text-slate-300 border-b border-[#E8E8E8] dark:border-slate-900'>" . $row["gelir_turu"] . "</td>";
-            echo "<td class='text-center text-dark py-2 px-3 bg-slate-100 dark:bg-slate-700 dark:text-slate-300 border-b border-[#E8E8E8] dark:border-slate-900'>" . $row["aciklama"] . "</td>";
-            echo "<td class='text-center text-dark py-2 px-3 bg-white dark:bg-slate-900/20 dark:text-slate-300 border-b border-[#E8E8E8] dark:border-slate-900'> " . "<a href=\"/functions/gelir-sil.php?id=" . $id . "&gelir-id=" . $row["gelir_id"] . "\"> <button type=\"button\" class=\"focus:outline-none text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-3 py-2 mr-2 mb-2 dark:bg-red-500 dark:hover:bg-red-600 dark:focus:ring-red-800\">Sil</button></a> " . "</td>";
-            echo "</tr>";
-        }
+            $gelenTarih = date("d-m-Y", strtotime($row["tarih"])); // Tarihi d-m-Y formatına dönüştürme
+            echo '<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-slate-700/50">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">' . $gelenTarih . '</th>
+                        <td class="px-6 py-4">' . $row["dekont_no"] . '</td>
+                        <td class="px-6 py-4">' . $row["miktar"] . '</td>
+                        <td class="px-6 py-4">' . $row["gelir_turu"] . '</td>
+                        <td class="px-6 py-4">' . $row["aciklama"] . '</td>
+                        <td class="px-6 py-4">
+                        <a href="/functions/gelir-sil.php?id=' . $id . '&gelir-id=' . $row["gelir_id"] . '"> <button type="button" class="focus:outline-none text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-3 py-2 mr-2 mb-2 dark:bg-red-500 dark:hover:bg-red-600 dark:focus:ring-red-800">Sil</button></a>                                
+                        </td>
+                    </tr>';
+        }                                        
     } else {
-        echo "<tr><td colspan='5' class='text-center'>Ödemesi Bulunamadı.</td></tr>";
+        
     }
-
-    // Veritabanı bağlantısını kapat
-    $conn->close();
 ?>
+
+
 
                                 </tbody>
                             </table>
@@ -537,6 +526,9 @@ function uyeSil() {
 <script src="assets/js/pages/sweetalert.init.js"></script>
 <script src="assets/libs/simplebar/simplebar.min.js"></script>
 <script src="assets/js/app.js"></script>
+<script src="assets/libs/simple-datatables/umd/uye-islemler.js"></script>
+<script src="assets/js/pages/datatable.init.js"></script>
+
 </body>
 
 </html>
