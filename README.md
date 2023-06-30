@@ -1,5 +1,6 @@
 # Dernek Yönetim Yazılımı
-Bu proje, bir derneğin üye yönetimini ve aidat takibini kolaylaştırmak amacıyla geliştirilen bir yazılımdır. Aşağıda yazılımın özellikleri, kurulumu, kullanılan teknolojiler ve lisans türü hakkında detaylı bilgiler yer almaktadır.
+Bu proje, bir derneğin üye yönetimini ve aidat takibini kolaylaştırmak amacıyla geliştirilen bir yazılımdır. Aşağıda yazılımın özellikleri, kurulumu, kullanılan teknolojiler ve lisans türü hakkında detaylı bilgiler yer almaktadır. **Proje gelişimine devam etmesi için sponsor olarak beni destekleyebilirsiniz.**
+
 
 ## Yazılım Tanıtım Videosu
 https://www.youtube.com/watch?v=4Jb1MC_O2uo
