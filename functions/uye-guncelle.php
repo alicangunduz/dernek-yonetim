@@ -1,7 +1,6 @@
 <?php
 include('../includes/db.php');
 
-// Form verilerini alın
 $id = $_POST['id'];
 $ad = $_POST['Ad'];
 $soyad = $_POST['Soyad'];
@@ -12,30 +11,23 @@ $babaAdi = $_POST['Baba_Adı'];
 $anaAdi = $_POST['Ana_Adı'];
 $uyruk = $_POST['Uyruk'];
 $dogumYeri = $_POST['Dogum_Yeri'];
-$dogumTarihi = $_POST['Dogum_Tarihi'];
+$dogumTarihi = isset($_POST['Dogum_Tarihi']) ? DateTime::createFromFormat('d-m-Y', $_POST['Dogum_Tarihi']) : false;
 $tcSeriNo = $_POST['TC_Seri_No'];
 $ikametgahAdresi = $_POST['Ikametgah_Adresi'];
 $meslek = $_POST['Meslek'];
 $isAdresi = $_POST['Is_Adresi'];
 $ilkUyelikKararNo = $_POST['Ilk_Uyelik_Karar_No'];
-$ilkUyelikKararTarihi = $_POST['Ilk_Uyelik_Karar_Tarihi'];
+$ilkUyelikKararTarihi = isset($_POST['Ilk_Uyelik_Karar_Tarihi']) ? DateTime::createFromFormat('d-m-Y', $_POST['Ilk_Uyelik_Karar_Tarihi']) : false;
 $defterKayitSayfaNo = $_POST['Defter_Kayit_Sayfa_No'];
 $uyelikDurumu = $_POST['Uyelik_Durumu'];
-$uyelikAyrilisTarihi = $_POST['Uyelik_Ayrilis_Tarihi'];
-$uyelikAyrilisKararTarihi = $_POST['Uyelik_Ayrilis_Karar_Tarihi'];
-$ayrilisKararNo = $_POST['Ayrilis_Karar_No'];
+$uyelikAyrilisTarihi = isset($_POST['Uyelik_Ayrilis_Tarihi']) ? DateTime::createFromFormat('d-m-Y', $_POST['Uyelik_Ayrilis_Tarihi']) : false;
+$uyelikAyrilisKararTarihi = isset($_POST['Uyelik_Ayrilis_Karar_Tarihi']) ? DateTime::createFromFormat('d-m-Y', $_POST['Uyelik_Ayrilis_Karar_Tarihi']) : false;
+$ayrilisKararNo = isset($_POST['Ayrilis_Karar_No']) ? $_POST['Ayrilis_Karar_No'] : '';
 
-$dogumTarihi = date('Y-m-d', strtotime(str_replace('-', '/', $dogumTarihi)));
-$ilkUyelikKararTarihi = date('Y-m-d', strtotime(str_replace('-', '/', $ilkUyelikKararTarihi)));
-$uyeAyrilisTarihi = date('Y-m-d', strtotime(str_replace('-', '/', $uyeAyrilisTarihi)));
-$uyeAyrilisKararTarihi = date('Y-m-d', strtotime(str_replace('-', '/', $uyeAyrilisKararTarihi)));
-
-if ($uyelikAyrilisKararTarihi == '') {
-    $uyelikAyrilisKararTarihi = '0000-00-00';
-}
-if ($uyelikAyrilisTarihi == '') {
-    $uyelikAyrilisTarihi = '0000-00-00';
-}
+$dogumTarihi = $dogumTarihi !== false ? $dogumTarihi->format('Y-m-d') : '00-00-0000';
+$ilkUyelikKararTarihi = $ilkUyelikKararTarihi !== false ? $ilkUyelikKararTarihi->format('Y-m-d') : '00-00-0000';
+$uyelikAyrilisTarihi = $uyelikAyrilisTarihi !== false ? $uyelikAyrilisTarihi->format('Y-m-d') : '00-00-0000';
+$uyelikAyrilisKararTarihi = $uyelikAyrilisKararTarihi !== false ? $uyelikAyrilisKararTarihi->format('Y-m-d') : '00-00-0000';
 
 // Veritabanında güncelleme yapma
 $sql = "UPDATE `uye_bilgi` SET

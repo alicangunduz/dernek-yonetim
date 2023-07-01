@@ -32,11 +32,12 @@ if ($result->num_rows > 0) {
         $uyelik_ayrilis_tarihi = $row['uyelik_ayrilis_tarihi'];
         $uyelik_ayrilis_karar_tarihi = $row['uyelik_ayrilis_karar_tarihi'];
         $ayrilis_karar_no = $row['ayrilis_karar_no'];
+        
 
-        $dogum_tarihi = date('d-m-Y', strtotime(str_replace('-', '/', $dogum_tarihi)));
-        $ilk_uyelik_karar_tarihi = date('d-m-Y', strtotime(str_replace('-', '/', $ilk_uyelik_karar_tarihi)));
-        $uyelik_ayrilis_tarihi = date('d-m-Y', strtotime(str_replace('-', '/', $uyelik_ayrilis_tarihi)));
-        $uyelik_ayrilis_karar_tarihi = date('d-m-Y', strtotime(str_replace('-', '/', $uyelik_ayrilis_karar_tarihi)));
+        $dogum_tarihi = date('d-m-Y', strtotime($dogum_tarihi));
+        $ilk_uyelik_karar_tarihi = date('d-m-Y', strtotime($ilk_uyelik_karar_tarihi));
+       
+       
 
         
     }
@@ -282,7 +283,13 @@ $conn->close();
                                             id="Uyelik_Ayrilis_Tarihi"
                                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                             placeholder=" "
-                                            value="<?php echo ($uyelik_ayrilis_tarihi == '0000-00-00') ? '' : $uyelik_ayrilis_tarihi; ?>" />
+                                            value="<?php 
+                                            // Uyelik tarihi yil-ay-gun olarak geliyor bunu gun-ay-yil olarak degistiriyoruz
+                                            $uyelik_ayrilis_tarihi = explode("-", $uyelik_ayrilis_tarihi);
+                                            $uyelik_ayrilis_tarihi = $uyelik_ayrilis_tarihi[2]."-".$uyelik_ayrilis_tarihi[1]."-".$uyelik_ayrilis_tarihi[0];
+                                            
+                                            
+                                            echo ($uyelik_ayrilis_tarihi == '00-00-0000') ? '' : $uyelik_ayrilis_tarihi; ?>" />
                                         <label for="Uyelik_Ayrilis_Tarihi"
                                             class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                                             Üyelik Ayrılış Tarihi</label>
@@ -293,7 +300,12 @@ $conn->close();
                                             id="Uyelik_Ayrilis_Karar_Tarihi"
                                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                             placeholder=" "
-                                            value="<?php echo ($uyelik_ayrilis_karar_tarihi == '0000-00-00') ? '' : $uyelik_ayrilis_karar_tarihi; ?>" />
+                                            value="<?php 
+                                            // Uyelik tarihi yil-ay-gun olarak geliyor bunu gun-ay-yil olarak degistiriyoruz
+                                            $uyelik_ayrilis_karar_tarihi = explode("-", $uyelik_ayrilis_karar_tarihi);
+                                            $uyelik_ayrilis_karar_tarihi = $uyelik_ayrilis_karar_tarihi[2]."-".$uyelik_ayrilis_karar_tarihi[1]."-".$uyelik_ayrilis_karar_tarihi[0];
+
+                                            echo ($uyelik_ayrilis_karar_tarihi == '00-00-0000') ? '' : $uyelik_ayrilis_karar_tarihi; ?>" />
                                         <label for="Uyelik_Ayrilis_Karar_Tarihi"
                                             class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                                             Üyelik Ayrılış Karar Tarihi</label>
@@ -453,7 +465,8 @@ $conn->close();
     if ($result->num_rows > 0) {
         // output data of each row
         while ($row = $result->fetch_assoc()) {
-            $gelenTarih = date("d-m-Y", strtotime($row["tarih"])); // Tarihi d-m-Y formatına dönüştürme
+             // Tarihi d-m-Y formatına dönüştürme
+            $gelenTarih = date('d-m-Y', strtotime($row["tarih"]));
             echo '<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-slate-700/50">
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">' . $gelenTarih . '</th>
                         <td class="px-6 py-4">' . $row["dekont_no"] . '</td>
