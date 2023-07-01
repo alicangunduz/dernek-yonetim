@@ -9,7 +9,7 @@ $id = $_GET['id'];
 $sql = "DELETE FROM `uye_bilgi` WHERE `id` = $id";
 
 if ($conn->query($sql) === TRUE) {
-  
+
 } else {
     echo "Veri silinirken hata oluştu: " . $conn->error;
 }

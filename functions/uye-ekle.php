@@ -29,13 +29,12 @@ $uyeAyrilisTarihi = date('Y-m-d', strtotime(str_replace('-', '/', $uyeAyrilisTar
 $uyeAyrilisKararTarihi = date('Y-m-d', strtotime(str_replace('-', '/', $uyeAyrilisKararTarihi)));
 
 if (empty($uyeAyrilisTarihi) || $uyeAyrilisTarihi == '1970-01-01' || $uyeAyrilisTarihi == '0000-00-00') {
-   $uyeAyrilisTarihi =  '';
+    $uyeAyrilisTarihi = '';
 }
 
 if (empty($uyeAyrilisKararTarihi) || $uyeAyrilisKararTarihi == '1970-01-01' || $uyeAyrilisKararTarihi == '0000-00-00') {
-    $uyeAyrilisKararTarihi =  '';
+    $uyeAyrilisKararTarihi = '';
 }
-
 
 
 // Veritabanına veri ekleme

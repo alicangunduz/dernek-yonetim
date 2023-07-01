@@ -8,7 +8,6 @@ $logo_link = $_POST['Dernek_Logo_Link'];
 $aidat_kac_gun = $_POST['Aidat_Kac_Gun'];
 
 
-
 // Veritabanına veri ekleme
 $sql = "UPDATE `site_ayarlar` SET `tema_renk`='$tema_renk',`dernek_adi`='$dernek_adi',`dernek_aciklama`='$dernek_aciklama',`logo_link`='$logo_link' , `aidat_kac_gun`='$aidat_kac_gun' WHERE `id` = 0";
 

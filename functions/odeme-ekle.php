@@ -13,7 +13,7 @@ $tarih = date('Y-m-d', strtotime($tarih));
 
 // Veritabanına veri ekleme
 $sql = "INSERT INTO `gelir`(`id`, `tarih`, `dekont_no`, `miktar`, `gelir_turu` , `aciklama`)
-VALUES ('$id', '$tarih', '$dekontNo', '$miktar', '$gelir_turu' ,'$aciklama')";
+        VALUES ('$id', '$tarih', '$dekontNo', '$miktar', '$gelir_turu' ,'$aciklama')";
 
 if ($conn->query($sql) === TRUE) {
     header("Location: /uye-islemler.php?id=$id&durum=ok");
