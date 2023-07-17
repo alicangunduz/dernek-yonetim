@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 28 Haz 2023, 06:10:32
+-- Üretim Zamanı: 17 Tem 2023, 10:55:09
 -- Sunucu sürümü: 10.4.27-MariaDB
 -- PHP Sürümü: 8.1.12
 
@@ -56,12 +56,27 @@ CREATE TABLE `gelir` (
   `aciklama` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
 --
--- Tablo döküm verisi `gelir`
+-- Tablo için tablo yapısı `gider`
 --
 
-INSERT INTO `gelir` (`id`, `gelir_id`, `tarih`, `dekont_no`, `miktar`, `gelir_turu`, `aciklama`) VALUES
-(7, 5, '2023-06-20', '234', 1000, 'Burs', 'Camcı');
+CREATE TABLE `gider` (
+  `id` int(11) NOT NULL,
+  `tarih` date NOT NULL,
+  `dekont_no` int(11) NOT NULL,
+  `miktar` int(11) NOT NULL,
+  `aciklama` varchar(255) NOT NULL,
+  `createddate` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Tablo döküm verisi `gider`
+--
+
+INSERT INTO `gider` (`id`, `tarih`, `dekont_no`, `miktar`, `aciklama`, `createddate`) VALUES
+(2, '2000-10-20', 234, 1000, 'Camcı', '2023-07-17 08:43:26');
 
 -- --------------------------------------------------------
 
@@ -117,6 +132,13 @@ CREATE TABLE `uye_bilgi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Tablo döküm verisi `uye_bilgi`
+--
+
+INSERT INTO `uye_bilgi` (`id`, `ad`, `soyad`, `tckn`, `tel`, `uyelik_no`, `baba_adi`, `ana_adi`, `uyruk`, `dogum_yeri`, `dogum_tarihi`, `tc_seri_no`, `ikametgah_adresi`, `meslek`, `is_adresi`, `ilk_uyelik_karar_no`, `ilk_uyelik_karar_tarihi`, `defter_kayit_sayfa_no`, `uyelik_durumu`, `uyelik_ayrilis_tarihi`, `uyelik_ayrilis_karar_tarihi`, `ayrilis_karar_no`) VALUES
+(3, 'Ali Can', '', '', '', '', '', '', '', '', '1970-01-01', '', '', '', '', '', '1970-01-01', '', 'Aktif', '0000-00-00', '0000-00-00', '');
+
+--
 -- Dökümü yapılmış tablolar için indeksler
 --
 
@@ -131,6 +153,12 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `gelir`
   ADD PRIMARY KEY (`gelir_id`);
+
+--
+-- Tablo için indeksler `gider`
+--
+ALTER TABLE `gider`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Tablo için indeksler `uye_bilgi`
@@ -153,13 +181,19 @@ ALTER TABLE `admin`
 -- Tablo için AUTO_INCREMENT değeri `gelir`
 --
 ALTER TABLE `gelir`
-  MODIFY `gelir_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `gelir_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `gider`
+--
+ALTER TABLE `gider`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `uye_bilgi`
 --
 ALTER TABLE `uye_bilgi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -230,7 +230,7 @@ function executeExample(sub) {
       Swal.fire({
         icon: "success",
         title: "Başarılı!",
-        timer: 3500,
+        timer: 5000,
       });
       return;
 
