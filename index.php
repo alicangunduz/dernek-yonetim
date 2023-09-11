@@ -109,6 +109,56 @@
                         <!--end inner-grid-->
                     </div>
 
+                    <div class="md:col-span-1 lg:col-span-1 xl:col-span-1   ">
+                        <div
+                            class="bg-white dark:bg-slate-800 shadow  rounded-md w-full p-4 relative overflow-hidden bg-[url('../images/widgets/p-1.png')] bg-no-repeat bg-contain">
+                            <div class="flex justify-between xl:gap-x-4 items-center">
+                                <div
+                                    class="absolute -left-6 -top-4 text-blue-500 p-3 text-center inline-flex items-center justify-center w-32 h-32 ">
+                                    <i class="ti ti-chart-donut text-3xl"></i>
+                                </div>
+                                <div class="self-center ml-auto">
+                                    <h3 class="my-1 font-semibold text-2xl dark:text-slate-200">
+                                        <?php
+                                            $sql = "SELECT SUM(miktar) AS gelir_miktari FROM `gelir` WHERE YEAR(tarih) = YEAR(NOW())";
+                                            $result = $conn->query($sql);
+                                            
+                                            // Sonuçları alın
+                                            if ($result->num_rows > 0) {
+                                                $row = $result->fetch_assoc();
+                                                $gelir_miktari = $row["gelir_miktari"];
+                                            } 
+                                            
+                                            // tarih bilgisini yıla göre sınıflandırma
+                                            $sql = "SELECT SUM(miktar) AS gider_miktari FROM gider WHERE YEAR(tarih) = YEAR(NOW())";
+                                            $result = $conn->query($sql);
+                                            
+                                            // Sonuçları alın
+                                            if ($result->num_rows > 0) {
+                                                $row = $result->fetch_assoc();
+                                                $gider_miktari = $row["gider_miktari"];
+                                            } 
+                                            
+                                            $toplam_para = $gelir_miktari - $gider_miktari;
+                                            
+                                            // toplam miktarı türkiye para formatında göster
+                                            $toplam_para = number_format($toplam_para, 2, ',', '.');
+                                            
+                                            echo $toplam_para . " ₺";
+                                                                                  
+                                        ?>
+                                    </h3>
+                                    <p class="text-gray-400 mb-0 font-medium">
+                                        2023 yılına ait Toplam Bakiye
+                                        <small class="font-thin">(Kasa +
+                                            Banka) </small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end inner-grid-->
+                    </div>
+
                     <!--end col-->
                 </div>
                 <!--end card-body-->

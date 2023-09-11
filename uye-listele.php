@@ -21,31 +21,35 @@
                 </div>
                 <!--end card-header-->
                 <div class="card-body">
+                    <a href="functions/uye-liste-ciktisi.php"><button id="gider-indir-button" type="submit"
+                            class="btn bg-blue-500 text-white hover:bg-blue-600">Üye Listesi Excel
+                            İndir</button></a>
+                    <br>
                     <div class="relative overflow-x-auto  sm:rounded">
 
                         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400" id="datatable_1">
                             <thead
-                                    class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-slate-700 dark:text-gray-400">
-                            <tr>
-                                <th scope="col" class="px-6 py-3">
-                                    Ad Soyad
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Üyelik No
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    TCKN
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Meslek
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    İşlemler
-                                </th>
-                            </tr>
+                                class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-slate-700 dark:text-gray-400">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3">
+                                        Ad Soyad
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Üyelik No
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        TCKN
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Meslek
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        İşlemler
+                                    </th>
+                                </tr>
                             </thead>
                             <tbody>
-                            <?php
+                                <?php
                             $sql = "SELECT id , uyelik_no, ad, soyad, tckn, meslek FROM uye_bilgi";
                             $result = $conn->query($sql);
 
