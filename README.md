@@ -3,9 +3,14 @@ Bu proje, bir derneğin üye yönetimini ve aidat takibini kolaylaştırmak amac
 
 
 ## Yazılım Tanıtım Videosu
-https://www.youtube.com/watch?v=4Jb1MC_O2uo ( Tanıtım videosu v1.0.0 için çekilmiştir eklenen özellikler mevcut.)
+https://www.youtube.com/watch?v=4Jb1MC_O2uo ( Tanıtım videosu ```v1.0.0``` için çekilmiştir eklenen özellikler mevcut.)
 <br>
-**Güncel Yazılım versiyonu :** v1.3.0
+**Güncel Yazılım versiyonu :** ```v1.3.0```
+
+## Yazılım Bilgisayarınızda Kurulum Videosu
+https://youtu.be/b515r2PbW8w 
+<br>
+```v1.3.0``` versiyonu sırasında çekilmiştir.
 
 ## Özellikler
 - Toplam üye görüntüleme: Derneğe kayıtlı toplam üye sayısını görüntüleyebilirsiniz.
