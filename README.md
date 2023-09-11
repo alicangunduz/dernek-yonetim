@@ -16,8 +16,10 @@ https://www.youtube.com/watch?v=4Jb1MC_O2uo
 - Üye listeleme: Tüm üyelerin listesini görüntüleyebilirsiniz.
 - Üye detaylı arama: İsim, üyelik tarihi veya diğer kriterlere göre üyeleri detaylı olarak arayabilirsiniz.
 - Üye silme: Sistemde kayıtlı olan bir üyeyi silebilirsiniz.
+- Üyelerin excel çıktısını alma. 
 - Üye ait aidat, bağış ve burs ekleme: Her üyenin aidat, bağış veya burs ödemelerini kaydedebilirsiniz.
 - Üye ait aidat, bağış ve burs silme: Üyenin aidat, bağış veya burs ödemelerini sistemden silebilirsiniz.
+- Gider arşivi çıktısı alma pdf ile.
 - Site ayarları ile site teması değişimi: Site ayarlarından farklı bir tema seçerek görünümü değiştirebilirsiniz.
 - Site ayarları ile site ismi, açıklaması ve logo güncelleme: Site ismi, açıklaması ve logosunu güncelleyebilirsiniz.
 - Aidatın kaç günde bir alındığını girme: Dernek üyelerinin aidatını kaç günde bir aldığını sistemde belirleyebilirsiniz.
