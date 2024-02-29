@@ -279,6 +279,11 @@ $conn->close();
                                                 } ?>>
                                                 İstifa
                                             </option>
+                                            <option value="Üye Değil" <?php if ($uyelik_durumu == "Üye Değil") {
+                                                    echo "Üye Değil";
+                                                } ?>>
+                                                İstifa
+                                            </option>
                                         </select>
                                     </div>
 

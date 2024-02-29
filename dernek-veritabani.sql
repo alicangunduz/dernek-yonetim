@@ -125,7 +125,7 @@ CREATE TABLE `uye_bilgi` (
   `ilk_uyelik_karar_no` text NOT NULL,
   `ilk_uyelik_karar_tarihi` date NOT NULL,
   `defter_kayit_sayfa_no` text NOT NULL,
-  `uyelik_durumu` enum('Aktif','Pasif','Vefat','İhraç','İstifa') NOT NULL,
+  `uyelik_durumu` enum('Aktif','Pasif','Vefat','İhraç','İstifa', 'Üye Değil') NOT NULL,
   `uyelik_ayrilis_tarihi` date NOT NULL,
   `uyelik_ayrilis_karar_tarihi` date NOT NULL,
   `ayrilis_karar_no` text NOT NULL

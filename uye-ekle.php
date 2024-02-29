@@ -208,6 +208,9 @@
                                             <option value="İstifa">
                                                 İstifa
                                             </option>
+                                            <option value="Üye Değil">
+                                            Üye Değil
+                                            </option>
                                         </select>
                                     </div>
 
